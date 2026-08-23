@@ -69,6 +69,8 @@ from pyasl.modules.preclinical_slice_pld_adjust import SlicePLDAdjust
 from pyasl.modules.preclinical_cbf_relative import CBFRelative
 from pyasl.modules.preclinical_brain_mask import BrainMask
 from pyasl.modules.preclinical_abs_t1fit import AbsCBF_T1Fit
+from pyasl.modules.preclinical_coregister import PreclinicalCoregister
+from pyasl.modules.preclinical_normalize import PreclinicalNormalize
 from pyasl.modules.save_outputs import SaveOutputs
 
 MODULE_MAP: Dict[str, Any] = {
@@ -83,8 +85,11 @@ MODULE_MAP: Dict[str, Any] = {
     "CBFRelative": CBFRelative(),
     "BrainMask": BrainMask(),
     "AbsCBF_T1Fit": AbsCBF_T1Fit(),
+    "PreclinicalCoregister": PreclinicalCoregister(),
+    "PreclinicalNormalize": PreclinicalNormalize(),
     "SaveOutputs": SaveOutputs(),
 }
+
 
 # --------------------------- Utilities -----------------------------
 

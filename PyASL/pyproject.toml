@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyasl-osipi"             
-version = "0.2.1"                 
+version = "0.3.0"            
 description = "A composite, open-source Python library for processing human and preclinical ASL MRI data."
 readme = { file = "README.md", content-type = "text/markdown" }
-requires-python = ">=3.6"         
+requires-python = ">=3.10"
 authors = [{ name = "tongxin (elo) li, OSIPI", email = "li.tongxin.elo@gmail.com" }]
 license = { text = "MIT License" }
 urls = { Homepage = "https://github.com/elooff/PyASL" }
@@ -35,14 +35,19 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-macos = ["tensorflow-macos>=2.12", "tensorflow-metal>=1.0"]
-cpu   = ["tensorflow>=2.12"]
-gpu   = ["tensorflow>=2.14"]
-dev   = ["pytest", "ruff", "black"]
+macos    = ["tensorflow-macos>=2.12", "tensorflow-metal>=1.0"]
+cpu      = ["tensorflow>=2.12"]
+gpu      = ["tensorflow>=2.14"]
+gui      = ["PyQt6>=6.5"]
+pipeline = ["pydantic>=2.0", "pyyaml>=6.0"]
+dev      = ["pytest", "pytest-qt", "pytest-cov", "ruff", "black", "pydantic>=2.0", "pyyaml>=6.0"]
+
+[project.scripts]
+pyasl-gui = "pyasl.gui.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["pyasl*"]              
 
 [tool.setuptools.package-data]
-pyasl = ["models/*.hdf5", "tpm/*.nii", "tpm/*.nii.gz", "**/*.yaml", "**/*.json"]
+pyasl = ["models/*.hdf5", "tpm/*.nii", "tpm/*.nii.gz", "**/*.yaml", "**/*.json", "**/*.qss", "**/*.png", "**/*.ico"]
